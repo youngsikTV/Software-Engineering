@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+<meta charset="UTF-8">
+<title>AI 회의 어시스턴트</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🤖 AI 회의 어시스턴트</h1>
+
+<p>음성 또는 텍스트로 회의 내용을 입력하면 요약과 할 일을 생성합니다.</p>
+
+<button class="record" onclick="startRecording()">🎤 녹음 시작</button>
+<button class="stop" onclick="stopRecording()">⏹ 녹음 중지</button>
+<button class="summary" onclick="makeSummary()">📌 회의 요약</button>
+<button class="todo" onclick="makeTodo()">✅ 할 일 생성</button>
+
+<textarea id="meetingText" placeholder="회의 내용이 여기에 기록됩니다..."></textarea>
+
+<div class="result" id="summaryResult">
+요약 결과가 여기에 표시됩니다.
+</div>
+
+<div class="result" id="todoResult">
+할 일 목록이 여기에 표시됩니다.
+</div>
+
+<div class="footer">
+이 웹페이지 제작 시간 ⏱ 약 15분 (AI와 함께 제작)
+</div>
+
+</div>
+
+<script defer src="js/app.js"></script>
+
+</body>
+</html>
