@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>AI 회의 요약기</title>
+
+<style>
+body{
+    font-family: Arial;
+    background:#f4f6f9;
+    margin:0;
+    padding:40px;
+}
+
+.container{
+    max-width:800px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+h1{
+    text-align:center;
+}
+
+textarea{
+    width:100%;
+    height:200px;
+    padding:10px;
+    font-size:14px;
+    margin-top:10px;
+}
+
+button{
+    margin-top:15px;
+    padding:12px 20px;
+    font-size:16px;
+    background:#007bff;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0056b3;
+}
+
+.result{
+    margin-top:30px;
+    background:#f1f3f5;
+    padding:20px;
+    border-radius:8px;
+}
+
+.timer{
+    text-align:center;
+    margin-top:10px;
+    color:#777;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🤖 AI 회의 요약기</h1>
+
+<p>회의 내용을 붙여넣으면 핵심 내용을 자동으로 정리합니다.</p>
+
+<textarea id="meetingText" placeholder="회의 내용을 입력하세요..."></textarea>
+
+<button onclick="summarize()">요약하기</button>
+
+<div class="result" id="result">
+요약 결과가 여기에 표시됩니다.
+</div>
+
+<div class="timer">
+이 페이지 제작 시간 ⏱ 15분 (AI와 함께 제작)
+</div>
+
+</div>
+
+<script>
+
+function summarize(){
+
+let text=document.getElementById("meetingText").value;
+
+if(text.length==0){
+alert("회의 내용을 입력하세요");
+return;
+}
+
+let sentences=text.split(/[.!?]\s/);
+
+let summary=sentences.slice(0,3);
+
+let resultHTML="<h3>📌 핵심 요약</h3><ul>";
+
+summary.forEach(s=>{
+resultHTML+="<li>"+s+"</li>";
+});
+
+resultHTML+="</ul>";
+
+document.getElementById("result").innerHTML=resultHTML;
+
+}
+
+</script>
+
+</body>
+</html>
